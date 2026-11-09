@@ -1,6 +1,6 @@
 // Xerxes — service worker: پوستهٔ برنامه را کش می‌کند تا آفلاین هم باز شود.
 // هر بار فایل‌ها را عوض کردی، عدد نسخه را یکی بالا ببر.
-const VERSION = 'xerxes-v4';
+const VERSION = 'xerxes-v5';
 const SHELL = [
   './', 'index.html', 'app.css', 'app.js', 'manifest.webmanifest', 'vendor/qrcode.min.js',
   'fonts/vazirmatn-arabic-wght-normal.woff2', 'fonts/vazirmatn-latin-wght-normal.woff2',

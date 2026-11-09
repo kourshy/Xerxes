@@ -1,5 +1,5 @@
 /**
- * Xerxes — بک‌اند Google Apps Script (نسخهٔ ۴: مدیریت سبد پروژه)
+ * Xerxes — بک‌اند Google Apps Script (نسخهٔ ۵: سبد پروژه، ابرپروژه، پایپ‌لاین)
  * داده در همین Google Sheet: tasks / projects / reviews / domains / events / people / updates / settings
  * رویدادها و یادآورها در تقویم جداگانهٔ «Xerxes» در Google Calendar.
  *
@@ -10,7 +10,8 @@ const SCHEMA = {
   tasks: ['id','title','domain','projectId','minutes','priority','plan','due','note','status','doneDay','doneAt','triaged','createdAt','order','sample',
           'assignee'],
   projects: ['id','title','domain','goal','deadline','status','createdAt','sample',
-             'owner','type','priority','start','progress','progressAt','health','desc','stakeholder','stopRule','links'],
+             'owner','type','priority','start','progress','progressAt','health','desc','stakeholder','stopRule','links',
+             'parent','stage','porder'],
   reviews: ['id','wins','stuck','next','checks','autoText','autoAt'],
   domains: ['id','name','color','budget','order','archived','createdAt',
             'kind'],
@@ -18,12 +19,12 @@ const SCHEMA = {
   people: ['id','name','role','skills','note','active','order','createdAt'],
   updates: ['id','projectId','date','progress','health','note','createdAt']
 };
-const NUM = {minutes:1, priority:1, order:1, budget:1, duration:1, remind:1, progress:1};
+const NUM = {minutes:1, priority:1, order:1, budget:1, duration:1, remind:1, progress:1, porder:1};
 const BOOL = {triaged:1, sample:1, archived:1, sync:1, active:1};
 const JSONF = {checks:1, gcal:1};
 const ISO = {createdAt:1, doneAt:1, autoAt:1};
 const TZ = 'Asia/Tehran';
-const SETUP_VERSION = '3';
+const SETUP_VERSION = '4';
 
 /* ساعت یادآور روزانه (ایمیل + تقویم). پس از تغییر، installReminders را دوباره اجرا کنید. */
 const REMIND_HOUR = 9;
@@ -37,7 +38,7 @@ const HEALTH_LABEL = {g:'روی روال', y:'نیازمند توجه', r:'در 
 const WD_FA = ['', 'دوشنبه', 'سه‌شنبه', 'چهارشنبه', 'پنجشنبه', 'جمعه', 'شنبه', 'یکشنبه']; // اندیس = خروجی 'u'
 
 /* ---------- JSON API ---------- */
-function doGet() { return json_({ok: true, app: 'xerxes', version: 4, hint: 'POST only'}); }
+function doGet() { return json_({ok: true, app: 'xerxes', version: 5, hint: 'POST only'}); }
 
 function doPost(e) {
   let out;
@@ -82,7 +83,7 @@ function getState_() {
   setup_();
   return {tasks: read_('tasks'), projects: read_('projects'), reviews: read_('reviews'),
     domains: read_('domains'), events: read_('events'), people: read_('people'), updates: read_('updates'),
-    settings: readSettings_(), rev: rev_(), version: 4};
+    settings: readSettings_(), rev: rev_(), version: 5};
 }
 
 /** ops: [{t:'put',kind,obj} | {t:'del',kind,id} | {t:'settings',obj}] */
@@ -234,7 +235,7 @@ function writeSettings_(s) {
   if ('atom' in s) set('atom', Number(s.atom) || 25);
   if ('focus' in s) set('focus', Number(s.focus) || 3);
   if ('gcalDefault' in s) set('gcal_default', s.gcalDefault === false ? 0 : 1);
-  if ('home' in s && ['home', 'today', 'projects'].indexOf(String(s.home)) >= 0) set('home', String(s.home));
+  if ('home' in s && ['home', 'today', 'projects', 'week'].indexOf(String(s.home)) >= 0) set('home', String(s.home));
   if ('staleDays' in s) set('stale_days', Math.max(1, Math.min(60, Number(s.staleDays) || 7)));
   if ('appUrl' in s && /^https:\/\//.test(String(s.appUrl))) set('app_url', String(s.appUrl).slice(0, 500));
 }

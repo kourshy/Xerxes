@@ -20,8 +20,8 @@
     {"src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any"}
   ],
   "shortcuts": [
-    {"name": "سبد پروژه‌ها", "url": "./#home", "icons": [{"src": "icons/icon-192.png", "sizes": "192x192"}]},
-    {"name": "امروزِ من", "url": "./#today", "icons": [{"src": "icons/icon-192.png", "sizes": "192x192"}]},
-    {"name": "بازبینی هفتگی", "url": "./#review", "icons": [{"src": "icons/icon-192.png", "sizes": "192x192"}]}
+    {"name": "پروژه‌ها", "url": "./#projects/overview", "icons": [{"src": "icons/icon-192.png", "sizes": "192x192"}]},
+    {"name": "امروز", "url": "./#today", "icons": [{"src": "icons/icon-192.png", "sizes": "192x192"}]},
+    {"name": "بازبینی هفتگی", "url": "./#week/review", "icons": [{"src": "icons/icon-192.png", "sizes": "192x192"}]}
   ]
 }
