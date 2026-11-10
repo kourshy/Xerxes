@@ -11,71 +11,17 @@
   "orientation": "any",
   "background_color": "#F5F6F3",
   "theme_color": "#F5F6F3",
-  "categories": [
-    "productivity"
-  ],
+  "categories": ["productivity"],
   "icons": [
-    {
-      "src": "icons/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "icons/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "icons/maskable-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "icons/maskable-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "icons/icon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any"
-    }
+    {"src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+    {"src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
+    {"src": "icons/maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable"},
+    {"src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"},
+    {"src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any"}
   ],
   "shortcuts": [
-    {
-      "name": "امروز",
-      "url": "./#today",
-      "icons": [
-        {
-          "src": "icons/icon-192.png",
-          "sizes": "192x192"
-        }
-      ]
-    },
-    {
-      "name": "پروژه‌ها",
-      "url": "./#projects",
-      "icons": [
-        {
-          "src": "icons/icon-192.png",
-          "sizes": "192x192"
-        }
-      ]
-    },
-    {
-      "name": "افراد",
-      "url": "./#people",
-      "icons": [
-        {
-          "src": "icons/icon-192.png",
-          "sizes": "192x192"
-        }
-      ]
-    }
+    {"name": "پروژه‌ها", "url": "./#projects/overview", "icons": [{"src": "icons/icon-192.png", "sizes": "192x192"}]},
+    {"name": "امروز", "url": "./#today", "icons": [{"src": "icons/icon-192.png", "sizes": "192x192"}]},
+    {"name": "بازبینی هفتگی", "url": "./#week/review", "icons": [{"src": "icons/icon-192.png", "sizes": "192x192"}]}
   ]
 }

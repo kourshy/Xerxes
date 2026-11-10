@@ -19,19 +19,19 @@
 <script>try{var t=localStorage.getItem('x-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
 </head>
 <body>
-<header class="head" id="head">
-  <div class="wrap">
-    <div class="top">
-      <div class="brand"><img src="icons/icon.svg" alt=""><span>Xerxes</span></div>
-      <nav class="tabs" id="tabs" aria-label="ناوبری اصلی"></nav>
+<div class="app">
+  <aside class="side" id="side" aria-label="ناوبری"></aside>
+  <div class="main">
+    <header class="topbar" id="topbar">
+      <div class="brand"><img src="icons/icon.svg" alt=""><div class="nm"><b>Xerxes</b><span>مدیریت و برنامه‌ریزی</span></div></div>
       <button class="sync" id="sync" type="button" data-act="sync" title="همگام‌سازی اکنون"><i></i><span class="t">…</span></button>
-      <button class="iconbtn" id="gear" type="button" data-act="settings" aria-label="تنظیمات"></button>
-    </div>
-    <div class="cap" id="cap"></div>
+      <button class="iconbtn" id="menubtn" type="button" data-act="menu" aria-label="منو"></button>
+    </header>
+    <main id="view"></main>
   </div>
-</header>
-<main id="view" class="wrap"></main>
+</div>
 <nav class="bnav" id="bnav" aria-label="ناوبری اصلی"></nav>
+<button class="fab" id="fab" type="button" data-act="quick" aria-label="افزودن"></button>
 <div id="sheet" hidden></div>
 <div id="toast" class="toast" hidden></div>
 <div id="tip" class="tip" hidden></div>
